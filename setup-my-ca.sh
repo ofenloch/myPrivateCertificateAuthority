@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export CA_ROOT=./myCA
-OPENSSL_CNF=./myopenssl.cnf
+OPENSSL_CNF=${CA_ROOT}/myopenssl.cnf
 
 
 # clean CA directory
@@ -13,6 +13,8 @@ OPENSSL_CNF=./myopenssl.cnf
 /usr/bin/mkdir -p ${CA_ROOT}/private
 /usr/bin/mkdir -p ${CA_ROOT}/certs
 /usr/bin/mkdir -p ${CA_ROOT}/newcerts
+
+/usr/bin/cp ./myopenssl.cnf ${CA_ROOT}
 
 # create a .gitignore to avoid accidental commits of private data
 /usr/bin/cat << EOF > ${CA_ROOT}/.gitignore
