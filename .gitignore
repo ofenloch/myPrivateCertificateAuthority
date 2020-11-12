@@ -1,0 +1,4 @@
+# avoid accidental commits of my .gitconfig
+.gitconfig
+# avoid accidental commits of the created CA
+myCA/
