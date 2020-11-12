@@ -14,6 +14,13 @@ OPENSSL_CNF=./myopenssl.cnf
 /usr/bin/mkdir -p ${CA_ROOT}/certs
 /usr/bin/mkdir -p ${CA_ROOT}/newcerts
 
+# create a .gitignore to avoid accidental commits of private data
+/usr/bin/cat << EOF > ${CA_ROOT}/.gitignore
+# ignore everything in this directory
+*
+# except this file
+!.gitignore
+EOF
 
 /usr/bin/pwgen -1 > ${CA_ROOT}/private/ca-password.txt
 /usr/bin/chmod 0400 ${CA_ROOT}/private/ca-password.txt
